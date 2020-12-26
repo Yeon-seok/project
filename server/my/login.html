@@ -1,0 +1,76 @@
+<html>
+
+<head>
+<style>
+table.table{margin : auto;}
+body{margin:0px;
+     padding:0px;
+}
+.login-form input[type="submit"] {
+	width: 80%;
+	height: 78%;
+	padding: 10px;
+	margin: 5px 5px 22px 10px;
+	border-radius: 10px;
+	color: white;
+	background-color: gray;
+	cursor: pointer;
+	font-weight: bold;
+	border: 0;
+};
+</style>
+</head>
+
+<body>
+
+<table width = "40%" height = "70%" class=table>
+	<tr><td align = "center" colspan = "2" height = 100><font size = "5"><b>- 로그인 -</b></font></td></tr>
+<tr>
+<td align = center>
+<div class="login-form">
+<table height = "60%" width ="100%">
+<tr><td align = "center" height = "50"><b>NL 서비스 이용을 위해 로그인을 해주세요.</b></td><td></td></tr>
+<tr><td align = "center" width ="70%"><form action="/login" name="content_form" method="POST">
+	<input type = "text" name="username" size = "50" placeholder="Username"><p>
+	<input type = "password" name="password" size = "50" placeholder="Password"></td><td>
+    <input type = "submit" value="로그인" onClick="checkForm()">
+    </form></td></tr>
+<tr><td align = "right"><font size = "2" color = "gray"></a>  아직 회원이 아니신가요?</font></td>
+<td align="center"><a href = "/register"><img src = "/회원가입_btn.png"></td></tr>
+<tr><td></td><td align="center"><a href="guest.html"><img src="JoinGuest.png"Join Guest</a></td></tr>
+</table> 
+</div>
+</td>
+</tr>
+</table>
+ <table width="100%" bgcolor="#2c2a29" height="100">
+        <tr>
+            <td bgcolor="#2c2a29" width="100" align="middle">
+                <img src="NL2.png" width="50">
+            </td>
+            <td bgcolor="#2c2a29">
+                <font size="2" color="gray">
+                    서울특별시 노원구 공릉로 서울과학기술대학교 &nbsp;&nbsp; |  &nbsp;&nbsp; 제작자 : 성연석 김태호&nbsp;&nbsp; |  &nbsp;&nbsp; TEL : (02)1234-5678
+
+                    <p></p>
+                    COPYRIGHT (c) 2020 SeoulTech NL. ALL RIGHTS RESERVED.
+                </font>
+                <br clear="left" />
+            </td>
+        </tr>
+    </table>
+    <table width="100%"height=100 bgcolor="#2c2a29" height="40">
+        <tr>
+            <td>
+
+            </td>
+        </tr>
+    </table>
+    <script>
+        function checkForm() {
+            document.content_form.target="_parent";
+            document.content_form.submit();
+        }
+    </script>
+</body>
+</html>

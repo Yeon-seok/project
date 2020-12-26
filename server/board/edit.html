@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>게시판 수정</title>
+</head>
+<body>
+	<h1>글 수정</h1>
+	<hr/>
+	<form method="post">
+		<table>
+			<tr>
+				<td><labe>글 번호</labe></td>
+				<td><input type="text" name="id" value="<%= data.id %>" disabled/></td>
+			</tr>		
+			<tr>
+				<td><labe>작성자</labe></td>
+				<td><input type="text" name="name" value="<%= data.name %>" /></td>
+			</tr>
+			<tr>
+				<td><Label>제목</Label></td>
+				<td><input type="text" name="modelnumber" value="<%= data.modelnumber %>" /></td>
+			</tr>
+			<tr>
+				<td><label>내용</label></td>
+				<td><input type="text" name="series" value="<%= data.series %>" /></td>
+			</tr>
+		</table>
+		<input type="submit">
+	</form>
+</body>
+</html>

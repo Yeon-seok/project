@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>게시판 표현 | NL</title>
+
+	<style>
+		table.board {
+			width: 90%;
+			border-collapse: collapse;
+			text-align: left;
+			line-height: 1.4;
+			border-top: 1px solid #ccc;
+			border-left: 3px solid #369;
+			margin : 20px 10px;
+		}
+		table.board th {
+			width: 147px;
+			padding: 8px;
+			font-weight: bold;
+			vertical-align: top;
+			color: #153d73;
+			border-right: 1px solid #ccc;
+			border-bottom: 1px solid #ccc;
+		}
+		table.board td {
+			padding: 8px;
+			vertical-align: top;
+			border-right: 1px solid #ccc;
+			border-bottom: 1px solid #ccc;
+		}
+	</style>
+</head>
+<body>
+	<h1>게시판</h1>
+	<a href="/insert"><img src="/글쓰기.jpg"></a>
+	<hr/>
+	<table class="board" width="100%">
+		<tr>
+			<th>글 번호</th>
+			<th>작성자</th>
+			<th>제목</th>
+			<th>내용</th>
+			<th>수정</th>
+			<th>삭제</th>
+		</tr>
+		<% data.forEach(function(item, index) { %>
+		<tr>
+			<td style="width: 5%;"><%= item.id %> </td>
+			<td style="width: 20%;"><%= item.name %> </td>
+			<td style="width: 15%;"><%= item.modelnumber %> </td>
+			<td style="width: 50%;"><%= item.series %> </td>
+			<td style="width: 3%;"><a href="/edit/<%= item.id %>">수정</a></td>
+			<td style="width: 3%;"><a href="/delete/<%= item.id %>">삭제</a></td>
+		</tr>
+		<% }); %>
+	</table>
+</body>
+</html>

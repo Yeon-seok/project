@@ -1,0 +1,116 @@
+﻿<html>
+<head>
+    <meta charset="utf-8">
+    <title>Main Home | NL</title>
+    <style>
+ body {
+    margin: 0;
+    padding: 0;
+}
+.main {
+     margin: auto;
+}
+#main {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+th, td {
+    margin: 10px;
+}
+.header {
+    border: 2px solid gray;
+    border-radius: 5px;
+    width: 25%;
+    height: 10px;
+}
+.notice {
+    border: 1px solid black;
+}
+.chat_log{width: 100%; height: 200px; }
+.name{ width: 15%; }
+.message{ width: 70%; }
+.chat{ width: 12%; }
+li {
+    margin: 25px 20px 10px 0px;
+}
+</style>
+</head>
+<body style="overflow-x:hidden;">
+<div class="main">
+    <table name="main"cellspacing="10">
+        <tr>
+            <td rowspan="4">
+                <img src="wall.jpg" style="max-width: 100%; height: auto;">
+            </td>
+            <td class="header" align="center">Schedule</td>
+        </tr>
+        <tr>
+            <td class="notice" style="vertical-align:top;"><ul>
+                <li><a href='https://computer.seoultech.ac.kr/info_plaza/notic/?do=commonview&bnum=933&bidx=498718' target='_parent'>
+                    20020-2학기 컴퓨터공학과 기말시험 공고</a></li>
+                <li>2020-2학기 종강 : 2020. 12. 21</li>
+                <li>2020-2학기 성적입력 기간 : 20.12.21 ~ 20.12.27</li>
+                <li>2020-2학기 성적정정 기간 : 20.12.28 ~ 20.12.29</li>
+                <li>2020학년도 동계 계절학기 : 20.12.21 ~ 21.02.05</li>
+            </ul></td>
+        </tr>
+        <tr>
+            <td class="header" align="center">Chatting</td>
+        </tr>
+        <tr height='250'>
+            <td>
+                <div>
+                    <textarea id="chatLog" class="chat_log" readonly></textarea>
+                  </div>
+                  <form id="chat" style="margin-top: 10px;">
+                    <input id="name" class="name" type="text" readonly>
+                    <input id="message" class="message" type="text">
+                    <input type="submit" class="chat" value="chat"/>
+                  </form>
+            </td>
+        </tr>
+    </table>
+</div>
+    
+    <table width="100%" bgcolor="#2c2a29" height="100">
+        <tr>
+            <td bgcolor="#2c2a29" width="100" align="middle">
+                <img src="NL2.png" width="50">
+            </td>
+            <td bgcolor="#2c2a29">
+                <font size="2" color="gray">
+                    서울특별시 노원구 공릉로 서울과학기술대학교 &nbsp;&nbsp; |  &nbsp;&nbsp; 제작자 : 성연석 김태호&nbsp;&nbsp; |  &nbsp;&nbsp; TEL : (02)1234-5678
+
+                    <p></p>
+                    COPYRIGHT (c) 2020 SeoulTech NL. ALL RIGHTS RESERVED.
+                </font>
+                <br clear="left">
+            </td>
+        </tr>
+    </table>
+    <table width="100%" bgcolor="#2c2a29" height="40">
+        <tr>
+            <td></td>
+        </tr>
+    </table>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.js"></script>
+    <script> // 동아리 메인화면 채팅 (socket.io 사용)
+      var socket = io();
+      $('#chat').on('submit', function(e){
+        socket.emit('send message', $('#name').val(), $('#message').val());
+        $('#message').val("");
+        $("#message").focus();
+        e.preventDefault();
+      });
+      socket.on('receive message', function(msg){
+        $('#chatLog').append(msg+"\n");
+        $('#chatLog').scrollTop($('#chatLog')[0].scrollHeight);
+      });
+      socket.on('change name', function(name){
+        $('#name').val(name);
+      });
+    </script>
+</body>
+</html>
